@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import Movie from "./Movie";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const movies = [
+  {
+    title: "Matrix",
+    poster:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Ultimate_Matrix_Collection_poster.jpg/220px-Ultimate_Matrix_Collection_poster.jpg"
+  },
+  {
+    title: "Full Metal Jacket",
+    poster: "https://i.pinimg.com/736x/36/1e/cd/361ecdb85a3767f70810cbe2cdaaf1a4.jpg"
+  },
+  {
+    title: "Oldboy",
+    poster:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/b/bb/Oldboy_2013_film_poster.jpg/220px-Oldboy_2013_film_poster.jpg"
+  },
+  {
+    title: "Star wars",
+    poster:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY38LKiZ8gWEstGRDOvH0T0e8t7QgwChguucdmWeHQ9O2PWYkL"
+  }
+];
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        {movies.map(movie => {
+          return <Movie title={movie.title} poster={movie.poster} />;
+        })}
+      </div>
+    );
+  }
 }
 
 export default App;
