@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Movie from "./Movie";
 
-//Render: componentWillMount() → render() → componentDidMount()
-//Update: componentWillReceiveProps() → shouldComponentUpdate() → componentWillUpdate() → render();
-
 const movies = [
   {
     title: "Matrix",
@@ -28,7 +25,19 @@ const movies = [
 ];
 
 class App extends Component {
+  //Render: componentWillMount() → render() → componentDidMount()
+  //Update: componentWillReceiveProps() → shouldComponentUpdate() → componentWillUpdate() → render() → componentDidUpdate()
+
+  componentWillMount() {
+    console.log("will mount");
+  }
+
+  componentDidMount() {
+    console.log("did mount");
+  }
+
   render() {
+    console.log("render");
     return (
       <div className="App">
         {movies.map((movie, index) => {
