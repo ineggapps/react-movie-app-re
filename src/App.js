@@ -45,6 +45,7 @@ class App extends Component {
     console.log("render");
     return (
       <div className="App">
+        {this.state.movies.map((movie, index) => {
           return <Movie title={movie.title} poster={movie.poster} key={index} />;
         })}
       </div>
