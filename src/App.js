@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import "./App.css";
 import Movie from "./Movie";
 
+//Render: componentWillMount() → render() → componentDidMount()
+//Update: componentWillReceiveProps() → shouldComponentUpdate() → componentWillUpdate() → render();
+
 const movies = [
   {
     title: "Matrix",
@@ -28,8 +31,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {movies.map(movie => {
-          return <Movie title={movie.title} poster={movie.poster} />;
+        {movies.map((movie, index) => {
+          return <Movie title={movie.title} poster={movie.poster} key={index} />;
         })}
       </div>
     );
